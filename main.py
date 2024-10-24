@@ -17,7 +17,7 @@ game_active = True
 def randomize():
     color_turtle = colors[random.randint(0, len(colors) - 1)]
     shape_turtle = shapes[random.randint(0, len(shapes) - 1)]
-    shape_size = random.randint(1, 10)
+    shape_size = random.randint(1, 5)
     p.fillcolor(color_turtle)
     p.shape(shape_turtle)
     p.shapesize(shape_size)
@@ -28,6 +28,7 @@ def turtle_move():
         p.goto(random.randint(-400, 400), random.randint(-300, 300))
         p.pendown()
         randomize()
+        p.stamp()
 
 def update_score():
     if game_active:
@@ -59,7 +60,7 @@ def countdown():
         game_active = False
         time_display.clear()
         time_display.write("Time's up!", font=("Verdana", 30, "normal"))
-        p.onclick(None)
+        wn.onclick(None)
 
 score_display = trtl.Turtle()
 score_display.hideturtle()
@@ -70,9 +71,8 @@ time_display.hideturtle()
 turtle_move()
 update_score()
 
-p.onclick(click)
-
 wn = trtl.Screen()
+wn.onclick(click)
 
 countdown()
 
