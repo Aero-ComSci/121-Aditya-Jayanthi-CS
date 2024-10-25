@@ -14,6 +14,9 @@ start_game.shape("square")
 start_game.shapesize(5)
 start_game.setposition(0, 0)
 
+wn = trtl.Screen()
+wn.bgcolor("lightgreen")
+
 p = trtl.Turtle()
 p.speed(4)
 
@@ -88,7 +91,7 @@ score_display.hideturtle()
 time_display = trtl.Turtle()
 time_display.hideturtle()
 
-wn = trtl.Screen()
+
 p.onclick(click)
 
 wn.mainloop()
